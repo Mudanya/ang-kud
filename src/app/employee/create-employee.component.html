@@ -1,0 +1,75 @@
+<form class="card" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="card-header bg-primary text-white">
+        Create Employee
+    </div>
+    <div class="card-body">
+        <div class="mb-3 row">
+            <label for="fullName" class="form-label col-sm-2 text-end ">Full Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" [ngClass]="{'is-invalid':(employeeForm.get('fullName').errors && (employeeForm.get('fullName').touched || employeeForm.get('fullName').dirty))}" 
+                    formControlName="fullName" id="fullName">
+                <div class="invalid-feedback"
+                    *ngIf="employeeForm.get('fullName').errors.required && (employeeForm.get('fullName').touched || employeeForm.get('fullName').dirty)">
+                    Full Name is required.
+                </div>
+                <div class="invalid-feedback"
+                    *ngIf="(employeeForm.get('fullName').errors.minlength || employeeForm.get('fullName').errors.maxlength) && (employeeForm.get('fullName').touched || employeeForm.get('fullName').dirty)">
+                    Full Name must be greater than 2 characters and less than 10 characters.
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="email" class="form-label col-sm-2 text-end">Email</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" formControlName="email" id="email">
+            </div>
+        </div>
+        <div class="mb-3" formGroupName="skills">
+            <div class="row">
+                <div class="text-end col-sm-2">Skills</div>
+                <div class="col-sm-8">
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" formControlName="skillName" placeholder="Name">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" formControlName="experienceInYears"
+                                placeholder="Experience in Years">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3 row">
+                <div class="col-sm-2 text-end">Proficiency</div>
+                <div class="col-sm-8 d-flex gap-4">
+                    <div class="form-check">
+                        <input class="form-check-input" value="beginner" formControlName="proficiency" type="radio"
+                            id="beginner">
+                        <label class="form-check-label" for="beginner">
+                            Beginner
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="intermediate" formControlName="proficiency" type="radio"
+                            id="intermediate">
+                        <label class="form-check-label" for="intermediate">
+                            Intermediate
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="advanced" formControlName="proficiency" type="radio"
+                            id="advanced">
+                        <label class="form-check-label" for="advanced">
+                            Advanced
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-body-secondary d-flex gap-2">
+        <button type="submit" class="btn btn-primary ">Save</button>
+        <button type="button" class="btn btn-primary " (click)="onLoadData()">Load Data</button>
+    </div>
+</form>
