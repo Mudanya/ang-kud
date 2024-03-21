@@ -1,0 +1,56 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "fullName": "Bentola",
+      "email": "nexo@nexo.com",
+      "phone": "+254700263761",
+      "contactPreference": "phone",
+      "skills": [
+        {
+          "skillName": "Software Developer",
+          "proficiency": "advanced",
+          "experienceInYears": 4
+        },
+        {
+          "skillName": "Graphic Designer",
+          "proficiency": "intermediate",
+          "experienceInYears": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fullName": "Annastie",
+      "email": "anastie@nexo.com",
+      "phone": "+254757550814",
+      "contactPreference": "email",
+      "skills": [
+        {
+          "skillName": "Teacher",
+          "proficiency": "beginner",
+          "experienceInYears": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "fullName": "Raleigh",
+      "phone": "0700263761",
+      "email": "raleigh@nexo.com",
+      "contactPreference": "email",
+      "skills": [
+        {
+          "skillName": "Toddler",
+          "proficiency": "beginner",
+          "experienceInYears": 0
+        },
+        {
+          "skillName": "Crying",
+          "proficiency": "advanced",
+          "experienceInYears": 0
+        }
+      ]
+    }
+  ]
+}

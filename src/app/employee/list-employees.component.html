@@ -1,1 +1,24 @@
-<p>list-employees works!</p>
+<div class="container pt-3">
+    <table class="table table-light" *ngIf="employees">
+        <thead>
+            <tr class="table-primary">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Contact Preference</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.fullName}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.phone}}</td>
+                <td>{{employee.contactPreference}}</td>
+                <td> 
+                    <button (click)="editBtnClick(employee.id)" class="btn btn-primary">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

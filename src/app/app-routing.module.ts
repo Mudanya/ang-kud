@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateEmployeeComponent } from './employee/create-employee.component';
-import { ListEmployeesComponent } from './employee/list-employees.component';
+import { HomeComponent } from './home.component';
+import { PageNotFoundComponent } from './page-not-found.component';
+import { CustomPreloadService } from './custom-preload.service';
 
 const appRoutes:Routes = [
-  {path:'list',component:ListEmployeesComponent},
-  {path:'create',component:CreateEmployeeComponent},
-  {path:'',redirectTo:'/list',pathMatch:'full'}
+  {path:'home',component:HomeComponent},
+  {path:'',redirectTo:'/home',pathMatch:'full'},
+  {path:'employees',data:{preload:true},loadChildren:()=>import('./employee/employee.module').then(m => m.EmployeeModule)},
+  {path:'**',component:PageNotFoundComponent}
 ]
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes,{preloadingStrategy:CustomPreloadService})
   ],
   exports:[
     RouterModule
